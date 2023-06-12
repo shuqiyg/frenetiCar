@@ -26,12 +26,12 @@ const Hero = () => {
             <div className="hero__image-container">
                 <div className="hero__image">
                     <Image src="/bmw_f82.png" alt="f82" fill className="object-contain"></Image>
-
-                    <div className="hero__image-overlay"></div>
                 </div>
+                    
+                <div className="hero__image-overlay"></div>
             </div>
          </div>
   )
 }
 
-export default Hero
+export default Hero 
