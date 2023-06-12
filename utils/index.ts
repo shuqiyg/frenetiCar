@@ -55,13 +55,31 @@ export const generateCarImageUrl = (car: CarProps, angle?:string ) => {
 
   const { make, year, model } = car;
 
-  url.searchParams.append('customer', 'hrjavascript-mastery')
-  url.searchParams.append('modelFamily', model.split('')[0])
+  const modelSubStrings = model.split(" ");
+  let refinedModelName;
+  console.log("Split: ", modelSubStrings)
+  if(modelSubStrings.length > 1){
+    refinedModelName = modelSubStrings[0];
+  }else{
+    refinedModelName = modelSubStrings[0] + " " + modelSubStrings[1]
+  }
+  url.searchParams.append('customer', 'caterrybrowncompany')
+  url.searchParams.append('modelFamily', refinedModelName)
   url.searchParams.append('zoomType', "fullscreen")
   url.searchParams.append('modelYear', `${year}`)
   url.searchParams.append('angle', `${angle}`)
   url.searchParams.append('make', make)
-
+  console.log("Imagin URL: ", url)
   return url;
   // return `${url}`;
+}
+
+export const updateSearchParams = (type:string, value:string) => {
+  const searchParams = new URLSearchParams(window.location.search);
+
+  searchParams.set(type,value);
+
+  const newPathname = `${window.location.pathname}?${searchParams.toString()}`;
+
+  return newPathname;
 }
