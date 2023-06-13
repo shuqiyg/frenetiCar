@@ -19,7 +19,7 @@ const SearchButton = ({otherClasses}:{otherClasses:string}) => {
     )
 }
 const SearchBar = ({setManufacturer, setModel}) => {
-    const [searchManufacturer, setSearchManuFacturer] = useState("")
+    const [searchManufacturer, setSearchManufacturer] = useState("")
     const [searchmodel, setSearchModel] = useState("")
 
     const router = useRouter();
@@ -73,7 +73,7 @@ const SearchBar = ({setManufacturer, setModel}) => {
                     className="absolute w-[20px] h-[20px] ml-4"
                     alt="car model"
                 />
-                <input type="text" name="model" value={searchModel} onChange={(e)=> setSearchModel(e.target.value)} placeholder="m3" className="searchbar__input" />
+                <input type="text" name="model" value={searchmodel} onChange={(e)=> setSearchModel(e.target.value)} placeholder="m3" className="searchbar__input" />
                 <SearchButton otherClasses="sm:hidden"/>
             </div>
             <SearchButton otherClasses="max-sm:hidden"/>

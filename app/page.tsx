@@ -34,11 +34,11 @@ export default async function Home() {
       setLoading(true);
       try{
         const result = await fetchCars({
-          manufacturer: manufacturer || '',
-          year: year || 2023,
-          fuel: fuel || '',
-          limit: limit || 10,
-          model: model || '',
+            manufacturer: manufacturer || '',
+            year: year || 2023,
+            fuel: fuel || '',
+            limit: limit || 10,
+            model: model || '',
         })
   
         setAllCars(result)
@@ -68,7 +68,7 @@ export default async function Home() {
         </div>
 
         <div className='home__filters'>
-          <SearchBar setManufacturer={setManufacturer}/>
+          <SearchBar setManufacturer={setManufacturer} setModel={setModel}/>
 
           <div className='home__filter-container'>
             <CustomFilter title='fuel' options={fuels} setFilter={setFuel}/>
