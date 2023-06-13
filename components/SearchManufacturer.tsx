@@ -7,6 +7,7 @@ import { useState, Fragment } from 'react'
 import { manufacturers } from '@/constants'
 
 const SearchManufacturer = ({ selected, setSelected}: SearchManufacturerProps) => {
+    // storing the search query
     const [query, setQuery ] = useState("")
     const filteredManufacturers = query === "" ? manufacturers : manufacturers.filter((item) => (
         item.toLowerCase().replace(/\s+/g,"").includes(query.toLowerCase().replace(/\s+/g, ""))

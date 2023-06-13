@@ -40,7 +40,6 @@ export default async function Home() {
             limit: limit || 10,
             model: model || '',
         })
-  
         setAllCars(result)
       }catch(err){
         console.log(err)
@@ -51,7 +50,7 @@ export default async function Home() {
 
   useEffect(()=> {
     getCars();
-  }, [fuel, year, limit, manufacturer, model])
+  }, [])
  
   console.log(allCars)
   const isDataEmpty = !Array.isArray(allCars) || allCars.length < 1 || !allCars;
@@ -68,7 +67,7 @@ export default async function Home() {
         </div>
 
         <div className='home__filters'>
-          <SearchBar setManufacturer={setManufacturer} setModel={setModel}/>
+          <SearchBar setManuFacturer={setManufacturer} setModel={setModel}/>
 
           <div className='home__filter-container'>
             <CustomFilter title='fuel' options={fuels} setFilter={setFuel}/>
