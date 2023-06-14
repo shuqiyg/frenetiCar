@@ -3,9 +3,9 @@ const nextConfig = {
     images: {
         domains: ['cdn.imagin.studio']
     },
-    types: {
-        ignoreBuildErrors: true,
-    }
+    // types: {
+    //     ignoreBuildErrors: true,
+    // }
 }
 
 module.exports = nextConfig
