@@ -34,12 +34,12 @@ export default async function Home() {
       setLoading(true);
       try{
         const result = await fetchCars({
-            manufacturer: manufacturer || '',
+            manufacturer: manufacturer.toLowerCase() || '',
             year: year || 2023,
-            fuel: fuel || '',
+            fuel: fuel.toLowerCase() || '',
             limit: limit || 10,
-            model: model || '',
-        })
+            model: model.toLowerCase() || '',
+        });
   
         setAllCars(result)
       }catch(err){
@@ -47,13 +47,13 @@ export default async function Home() {
       }finally{
         setLoading(false);
       }     
-  }
+  };
 
   useEffect(()=> {
     getCars();
   }, [fuel, year, limit, manufacturer, model])
  
-  console.log(allCars)
+  console.log("*******",allCars)
   const isDataEmpty = !Array.isArray(allCars) || allCars.length < 1 || !allCars;
   return (
     <main className="overflow-hidden">
@@ -71,16 +71,16 @@ export default async function Home() {
           <SearchBar setManufacturer={setManufacturer} setModel={setModel}/>
 
           <div className='home__filter-container'>
-            <CustomFilter title='fuel' options={fuels} setFilter={setFuel}/>
-            <CustomFilter title='year' options={yearsOfProduction} setFilter={setYear}/>
+            <CustomFilter options={fuels} setFilter={setFuel}/>
+            <CustomFilter options={yearsOfProduction} setFilter={setYear}/>
           </div>
         </div>
 
         {allCars.length > 0 ? (
           <section>
             <div className='home__cars-wrapper'>
-              {allCars?.map((car)=> (
-                  <CarCard car={car}/>
+              {allCars?.map((car, index)=> (
+                  <CarCard key={`car-${index}`} car={car}/>
               ))}
             </div>
                 
@@ -92,7 +92,7 @@ export default async function Home() {
 
             <ShowMore
               pageNumber={limit / 10}
-              isNext = {limit > allCars.length}
+              isNext = {limit <= allCars.length}
               setLimit={setLimit}
             ></ShowMore>
           </section>
