@@ -19,7 +19,7 @@ const SearchButton = ({otherClasses}:{otherClasses:string}) => {
         </button>
     )
 }
-const SearchBar = ({setManuFacturer, setModel}:SearchBarProps) => {
+const SearchBar = ({setManufacturer, setModel}: SearchBarProps) => {
     const [searchManufacturer, setSearchManufacturer] = useState("")
     const [searchmodel, setSearchModel] = useState("")
 
@@ -33,7 +33,7 @@ const SearchBar = ({setManuFacturer, setModel}:SearchBarProps) => {
 
         // updateSearchParams(model.toLowerCase(), manufacturer.toLowerCase())
         setModel(searchmodel);
-        setManuFacturer(searchManufacturer);
+        setManufacturer(searchManufacturer);
     }
 
     // const updateSearchParams = (model:string, manufacturer:string) => {

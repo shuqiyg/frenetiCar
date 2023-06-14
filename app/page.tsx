@@ -3,11 +3,12 @@
 import { CarCard, CustomFilter, SearchBar, ShowMore } from '@/components'
 import Hero from '@/components/Hero'
 import { fuels, manufacturers, yearsOfProduction } from '@/constants'
+import { CarState } from '@/types'
 import { fetchCars } from '@/utils'
 import Image from 'next/image'
 import { useState, useEffect } from 'react'
 
-export default async function Home() {
+export default function Home() {
   // const allCars = await fetchCars({
   //   manufacturer: searchParams.manufacturer || '',
   //   year: searchParams.year || 2023,
@@ -16,7 +17,7 @@ export default async function Home() {
   //   model: searchParams.model || '',
   // })
 
-  const [allCars, setAllCars] = useState([])
+  const [allCars, setAllCars] = useState<CarState>([])
   const [loading, setLoading] = useState(false)
 
    // search states
@@ -42,6 +43,7 @@ export default async function Home() {
         });
   
         setAllCars(result)
+        console.log(result[0])
       }catch(err){
         console.log(err)
       }finally{
@@ -51,10 +53,11 @@ export default async function Home() {
 
   useEffect(()=> {
     getCars();
+    console.log("*******",allCars)
   }, [fuel, year, limit, manufacturer, model])
  
-  console.log("*******",allCars)
-  const isDataEmpty = !Array.isArray(allCars) || allCars.length < 1 || !allCars;
+  
+  // const isDataEmpty = !Array.isArray(allCars) || allCars.length < 1 || !allCars;
   return (
     <main className="overflow-hidden">
       <Hero />

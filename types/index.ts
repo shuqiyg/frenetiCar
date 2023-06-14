@@ -1,5 +1,7 @@
 import { MouseEventHandler } from "react";
 
+export type CarState = CarProps[] & { message?: string };
+
 export interface CustomButtonProps {
     title: string;
     containerStyles?: string;
