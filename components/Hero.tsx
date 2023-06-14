@@ -6,7 +6,11 @@ import CustomButton from "./CustomButton"
 const Hero = () => {
 
     const handleScroll = () => {
+        const searchSection = document.getElementById("discover");
 
+        if(searchSection){
+            searchSection.scrollIntoView({ behavior: "smooth"})
+        }
     }
     return (
         <div className="hero">
