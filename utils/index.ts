@@ -28,7 +28,6 @@ export async function fetchCars(filters: FilterProps) {
 
     const response = await fetch(baseUrl, {
         headers: headers,
-        cache: 'force-cache'
     })
 
     const result = await response.json();
