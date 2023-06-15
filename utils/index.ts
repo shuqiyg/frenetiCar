@@ -64,7 +64,7 @@ export const generateCarImageUrl = (car: CarProps, angle?:string ) => {
   }else{
     refinedModelName = modelSubStrings[0] + " " + modelSubStrings[1]
   }
-  url.searchParams.append('customer', process.env.IMAGIN_API_KEY)
+  url.searchParams.append('customer', "caterrybrowncompany")
   url.searchParams.append('modelFamily', refinedModelName)
   url.searchParams.append('zoomType', "fullscreen")
   url.searchParams.append('modelYear', `${year}`)
